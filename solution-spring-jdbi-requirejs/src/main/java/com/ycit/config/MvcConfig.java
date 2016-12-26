@@ -24,10 +24,11 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-//    @Override
-//    public void configureDefaultServletHandling(
-//            DefaultServletHandlerConfigurer configurer) {
-//        configurer.enable();
-//    }
-
+    /**
+     * Configuration for serving static files
+     */
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
 }

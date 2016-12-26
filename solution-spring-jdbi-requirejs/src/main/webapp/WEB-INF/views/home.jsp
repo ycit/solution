@@ -6,15 +6,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <link href="../../plugins/bootstrap-3.3.0/bootstrap.css">
-    <script type="text/javascript" src="../../plugins/bootstrap-3.3.0/bootstrap.min.js"></script>
+    <link href="${ctx}/plugins/bootstrap-3.3.0/bootstrap.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="${ctx}/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="${ctx}/bootstrap-3.3.0/bootstrap.min.js"></script>
     <title>home</title>
 </head>
 <body>
-      <h2>welcome to home page <c:out value="123"></c:out></h2>
+
+      <h2>welcome to home page</h2>
+      <img src="${ctx}/static/images/lock.png"/>
       <div></div>
       <table class="table">
           <thead>
@@ -30,6 +34,7 @@
               <td></td>
               <td></td>
               <td></td>
+              <td><button class="btn">删除</button></td>
           </tr>
           </tbody>
       </table>

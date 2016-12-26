@@ -19,6 +19,7 @@ dependencies {
 
     compile group: 'org.springframework', name: 'spring-context', version: '4.3.4.RELEASE'
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.4.RELEASE'
+    compile group: 'org.jdbi', name: 'jdbi', version: '2.77'
 
 
 
