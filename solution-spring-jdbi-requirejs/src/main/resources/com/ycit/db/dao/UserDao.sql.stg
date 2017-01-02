@@ -1,0 +1,5 @@
+group UserDao;
+
+find() ::= <<
+      select name from user
+>>
