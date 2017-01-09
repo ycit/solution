@@ -3,4 +3,5 @@ include 'solution-webservice'
 include 'solution-spring-jdbi-requirejs'
 include 'solution-servlet'
 include 'core'
+include 'solution-redis'
 

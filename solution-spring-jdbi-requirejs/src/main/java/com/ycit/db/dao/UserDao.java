@@ -2,7 +2,7 @@ package com.ycit.db.dao;
 
 import com.ycit.beans.User;
 import com.ycit.db.BeanMapperFactory;
-import org.skife.jdbi.v2.sqlobject.SqlQuery;
+import org.skife.jdbi.v2.sqlobject.*;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.sqlobject.stringtemplate.UseStringTemplate3StatementLocator;
 
@@ -17,5 +17,15 @@ public interface UserDao {
 
     @SqlQuery
     List<User> find();
+
+//    @SqlUpdate
+//    @GetGeneratedKeys(columnName = "id",value = IdMapper.class )
+//    Long insertR(@BindBean("user")User user);
+
+    @SqlUpdate
+    void insert(@BindBean("user")User user);
+
+    @SqlQuery
+    User findById(@Bind("id")Long id);
 
 }

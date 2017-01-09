@@ -10,9 +10,9 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <link href="${ctx}/plugins/bootstrap-3.3.0/bootstrap.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="${ctx}/jquery/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="${ctx}/bootstrap-3.3.0/bootstrap.min.js"></script>
+    <link href="${ctx}/scripts/plugins/bootstrap-3.3.0/bootstrap.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="${ctx}/scripts/plugins/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="${ctx}/scripts/plugins/bootstrap-3.3.0/bootstrap.min.js"></script>
     <title>home</title>
 </head>
 <body>
@@ -36,6 +36,14 @@
               <td></td>
               <td><button class="btn">删除</button></td>
           </tr>
+          <c:forEach var="user" items="${users}">
+              <tr>
+                  <td>${user.name}</td>
+                  <td>${user.createTime}</td>
+                  <td></td>
+                  <td><button class="btn">删除</button></td>
+              </tr>
+          </c:forEach>
           </tbody>
       </table>
 </body>

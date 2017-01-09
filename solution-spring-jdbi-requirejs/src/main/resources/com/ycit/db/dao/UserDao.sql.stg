@@ -1,5 +1,19 @@
 group UserDao;
 
 find() ::= <<
-      select name from user
+     select * from USER
+>>
+
+findById(id) ::= <<
+     select * from USER where id = :id
+>>d
+
+insertR(user) ::= <<
+    insert into USER(name, email)
+    values (:user.name, :user.email)
+>>
+
+insert(user) ::= <<
+    insert into USER (name, email)
+    values (:user.name, :user.email)
 >>

@@ -33,6 +33,8 @@ dependencies {
     compile group: 'org.htmlparser', name: 'htmlparser', version: '2.1'//html 解析
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.5'//api 返回 json 数据 解析
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.5'//api 返回 json 数据 解析
+    compile group: 'org.elasticsearch', name: 'elasticsearch', version: '5.1.1'//es api
+    compile group: 'io.searchbox', name: 'jest', version: '2.0.4'// java http rest client for es
 
 
 
