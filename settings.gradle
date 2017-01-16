@@ -5,4 +5,5 @@ include 'solution-servlet'
 include 'core'
 include 'solution-redis'
 include 'solution-multi-thread'
+include 'solution-se'
 

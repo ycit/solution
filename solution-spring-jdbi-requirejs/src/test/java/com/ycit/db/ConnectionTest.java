@@ -26,7 +26,7 @@ public class ConnectionTest {
 
     @Test
     public void connect() {
-        List<User> name = userService.findName();
+        List<User> name = userService.find();
         System.out.println(name);
     }
 

@@ -2,8 +2,11 @@ package com.ycit.service;
 
 import com.ycit.beans.criteria.PerpCriteria;
 import io.searchbox.client.JestClient;
+import io.searchbox.client.JestResult;
 import io.searchbox.core.Search;
 import org.apache.commons.lang3.StringUtils;
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +32,7 @@ public class ElasticService {
                 .build();
     }
 
-    public void findPerps(PerpCriteria criteria) {
+    public void findPerps(PerpCriteria criteria) throws Exception {
         String ageRange = criteria.getAgeRange();
         String hometown = criteria.getHometown();
         Long startTime = criteria.getStartTime();
@@ -38,6 +41,13 @@ public class ElasticService {
         if (StringUtils.isNotBlank(ageRange)) {
 
         }
+        QueryBuilder queryBuilder=  QueryBuilders.matchAllQuery();
+        SearchSourceBuilder builder = new SearchSourceBuilder().size(100).query(queryBuilder);
+        Search search = new Search.Builder(builder.toString())
+                .addIndex(INDEX_EVENT)
+                .addType(TYPE_EVENT)
+                .build();
+        JestResult jestResult = jestClient.execute(search);
     }
 
 }
