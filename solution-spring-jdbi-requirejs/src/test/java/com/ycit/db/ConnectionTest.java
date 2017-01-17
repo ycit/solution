@@ -69,7 +69,7 @@ public class ConnectionTest {
         PreparedStatement statement = null;
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver"); // java　反射
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@10.15.100.104:1521:orcl", "perp", "perp");//参数分别代表 url 、userName 、password
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@172.16.60.104:1521:orcl", "perp", "perp");//参数分别代表 url 、userName 、password
             statement = connection.prepareStatement("select * from test_clob where id = ?");
             statement.setInt(1, 1);//动态设置 id 为 1，index 为 1（起始为1）
             ResultSet set = statement.executeQuery();

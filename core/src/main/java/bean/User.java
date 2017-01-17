@@ -1,21 +1,23 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by xlch on 2016/12/20.
  */
-public class User {
+public class User implements Serializable {
 
-    private Long id;
+    private long id;
     private String name;
+    private String email;
     private Date createTime;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -25,6 +27,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Date getCreateTime() {

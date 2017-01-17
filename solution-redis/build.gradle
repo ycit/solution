@@ -1,20 +1,10 @@
 group 'com.ycit'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
 apply plugin: 'war'
 
-sourceCompatibility = 1.5
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-
-    compile group: 'org.springframework', name: 'spring-context', version: '4.3.4.RELEASE'
-    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.4.RELEASE'
-
+    compile project(":core")
     compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
 }
