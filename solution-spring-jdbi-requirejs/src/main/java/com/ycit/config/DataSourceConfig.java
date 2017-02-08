@@ -56,7 +56,7 @@ public class DataSourceConfig {
         JestClientFactory factory = new JestClientFactory();
         factory.setHttpClientConfig(
                 new HttpClientConfig
-                        .Builder("http://10.15.100.249:9200")
+                        .Builder("http://172.16.60.249:9200")
                         .multiThreaded(true)
                         .gson(gson)
                         .build()

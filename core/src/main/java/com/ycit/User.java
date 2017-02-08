@@ -1,10 +1,10 @@
-package com.ycit.bean;
+package com.ycit;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by xlch on 2017/1/11.
+ * Created by xlch on 2016/12/20.
  */
 public class User implements Serializable {
 
@@ -12,6 +12,7 @@ public class User implements Serializable {
     private String name;
     private String email;
     private Date createTime;
+    private Date updateTime;
 
     public long getId() {
         return id;
@@ -43,5 +44,13 @@ public class User implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

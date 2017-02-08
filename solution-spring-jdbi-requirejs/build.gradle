@@ -4,10 +4,13 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'war'
 
-sourceCompatibility = 1.8
 
 dependencies {
     compile project(":core")
+
+//    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.7'
+//    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
+//    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
 
     compile group: 'org.jdbi', name: 'jdbi', version: '2.77'
     compile group: 'org.antlr', name: 'stringtemplate', version: '3.2.1'//jdbi 依赖

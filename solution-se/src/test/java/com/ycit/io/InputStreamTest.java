@@ -1,6 +1,6 @@
 package com.ycit.io;
 
-import com.ycit.bean.User;
+import com.ycit.User;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
