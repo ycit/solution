@@ -17,7 +17,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            com.ycit.config.DataSourceConfig,
+            com.ycit.config.DataSourceConfig
             com.ycit.config.AppConfig
         </param-value>
     </context-param>

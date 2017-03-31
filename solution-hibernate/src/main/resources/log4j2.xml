@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="off">
+
+    <!--  配置一些参数以备用   -->
+    <Properties>
+        <property name="log_home">logs</property>
+        <property name="log_error" value="log-error.log"/>
+        <property name="log_all" value="log.log"/>
+    </Properties>
+
+    <!-- 配置输出终端 通常包括控制台，文件 等 ,配置属性可以通过查看对应源代码进行配置-->
+    <!--  例如配置RollingFile ,则可参看 RollingFileAppender 类 中的属性参数进行配置 -->
+    <Appenders>
+        <!-- 配置控制台输出 -->
+        <Console name="Console" target="SYSTEM_OUT">
+
+            <!-- 配置布局形式 -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!--  配置文件输出，注意 log4j2 中未提供 DailyRollingFile ,可以直接在 RollingFile 中选择策略以达到 DailyRollingFile 的效果 -->
+        <!-- fileName:当前输出的文件路径  filePattern：rolling后原文件的名称 格式-->
+        <RollingFile name="dailyRollingFile" fileName="${log_home}/${log_all}"
+                     filePattern="${log_home}/${log_all}.%d{yyyy-MM-dd}.log" append="true">
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <policies>
+                <!--  基于时间的策略 -->
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+            </policies>
+        </RollingFile>
+        <RollingFile name="rollingFile" fileName="${log_home}/${log_error}"
+                     filePattern="${log_home}/${log_error}.%d{yyyy-MM-dd}.log" append="true">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <policies>
+                <!--  基于文件大小的策略，默认10mb之后另起一个文件 -->
+                <SizeBasedTriggeringPolicy/>
+            </policies>
+        </RollingFile>
+    </Appenders>
+
+    <!--  配置记录器 -->
+    <Loggers>
+        <logger name="org.springframework" level="INFO"></logger><!-- spring 的记录器，控制spring输出 -->
+        <Root level="debug"> <!-- 根记录器，所有记录器的父 -->
+            <AppenderRef ref="Console" level="debug"/>
+            <AppenderRef ref="dailyRollingFile" level="error"/>
+            <AppenderRef ref="rollingFile" level="debug"/>
+        </Root>
+    </Loggers>
+</Configuration>

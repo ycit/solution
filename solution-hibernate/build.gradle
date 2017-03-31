@@ -1,0 +1,9 @@
+
+dependencies{
+    compile (
+            'org.hibernate:hibernate-core:5.2.5.Final',
+            'com.alibaba:druid:1.0.27',
+            'mysql:mysql-connector-java:5.1.6',
+            'com.fasterxml.jackson.core:jackson-databind:2.8.2',
+    )
+}

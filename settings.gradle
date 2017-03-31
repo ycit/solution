@@ -6,4 +6,5 @@ include 'core'
 include 'solution-redis'
 include 'solution-multi-thread'
 include 'solution-se'
+include 'solution-hibernate'
 

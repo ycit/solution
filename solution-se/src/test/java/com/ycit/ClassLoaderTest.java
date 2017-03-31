@@ -38,5 +38,16 @@ public class ClassLoaderTest {
         System.out.println(User.class.getName());
     }
 
+    @Test
+    public void testN() {
+        int c = 1;
+        int m = c++ + 2;
+        System.out.println(m);
+        System.out.println(c);
+//        for (int i = 0;i <3 ;++i) {
+//            System.out.println(i);
+//        }
+    }
+
 
 }

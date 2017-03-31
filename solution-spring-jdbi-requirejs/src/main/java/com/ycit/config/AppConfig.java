@@ -1,15 +1,14 @@
 package com.ycit.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.ycit.service.UserService;
 import org.skife.jdbi.v2.DBI;
 import org.skife.jdbi.v2.IDBI;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.*;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.sql.DataSource;
@@ -19,13 +18,42 @@ import javax.sql.DataSource;
  */
 @Configuration
 @ComponentScan(basePackages = {"com.ycit.service"})
+@Import(DataSourceConfig.class)
+@EnableScheduling
+@EnableTransactionManagement(proxyTargetClass = true)
+@PropertySource({"classpath:params.properties"})
 public class AppConfig {
+
+    private String name;
+
+    @Value("${weChatChannelUrl}")
+    public void setName(String name) {
+        System.out.println(name);
+        this.name = name;
+    }
 
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
-    private UserService userService;
+    @Bean
+    public TransactionAwareDataSourceProxy dataSourceProxy() {
+        TransactionAwareDataSourceProxy dataSourceProxy = new TransactionAwareDataSourceProxy(dataSource);
+        return dataSourceProxy;
+    }
+
+    @Bean
+    public DataSourceTransactionManager transactionManager() {
+        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+        transactionManager.setDataSource(dataSourceProxy());
+        return transactionManager;
+    }
+
+    @Bean
+    public IDBI dbi() {
+        IDBI idbi = new DBI(dataSourceProxy());
+        return idbi;
+    }
+
 
     /**
      * spring 处理文件上传
@@ -39,11 +67,11 @@ public class AppConfig {
         return multipartResolver;
     }
 
-    @Bean(name = "dbi")
-    public IDBI dbi() {
-        IDBI dbi = new DBI(dataSource);
-        return dbi;
-    }
+//    @Bean(name = "dbi")
+//    public IDBI dbi() {
+//        IDBI dbi = new DBI(dataSource);
+//        return dbi;
+//    }
 
 //    @Bean
 //    public ObjectMapper objectMapper() {
