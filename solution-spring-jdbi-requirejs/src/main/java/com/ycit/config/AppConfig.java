@@ -1,17 +1,28 @@
 package com.ycit.config;
 
+import com.ycit.security.MyRealm;
+import org.apache.shiro.realm.Realm;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.skife.jdbi.v2.DBI;
 import org.skife.jdbi.v2.IDBI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.sql.DataSource;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xlch on 2016/12/1.
@@ -67,24 +78,28 @@ public class AppConfig {
         return multipartResolver;
     }
 
-//    @Bean(name = "dbi")
-//    public IDBI dbi() {
-//        IDBI dbi = new DBI(dataSource);
-//        return dbi;
-//    }
+    @Bean
+    public ShiroFilterFactoryBean shiroFilter()throws IOException {
+        Resource resource = new ClassPathResource("auth.properties");
+        String authConfig = FileCopyUtils.copyToString(new FileReader(resource.getFile()));
+        ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
+        shiroFilter.setSecurityManager(securityManager());
+        shiroFilter.setFilterChainDefinitions(authConfig);
+        return shiroFilter;
+    }
 
-//    @Bean
-//    public ObjectMapper objectMapper() {
-//        ObjectMapper objMapper = new ObjectMapper();
-//        objMapper.enable(SerializationFeature.INDENT_OUTPUT);
-//        return objMapper;
-//    }
-//
-//    @Bean
-//    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-//        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
-//        mappingJackson2HttpMessageConverter.setObjectMapper(objectMapper());
-//        return mappingJackson2HttpMessageConverter;
-//    }
+    @Bean
+    public DefaultWebSecurityManager securityManager() {
+        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+        List<Realm> realms = new ArrayList<>();
+        realms.add(myRealm());
+        securityManager.setRealms(realms);
+        return securityManager;
+    }
+
+    public Realm myRealm() {
+        MyRealm realm = new MyRealm();
+        return realm;
+    }
 
 }

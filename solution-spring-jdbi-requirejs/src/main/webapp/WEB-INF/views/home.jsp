@@ -11,8 +11,8 @@
 <html>
 <head>
     <link href="${ctx}/js/lib/bootstrap-3.3.0/bootstrap.css" rel="stylesheet" type="text/css">
-    <%--<script type="text/javascript" src="${ctx}/js/lib/jquery/jquery-3.1.1.min.js"></script>--%>
-    <%--<script type="text/javascript" src="${ctx}/js/lib/bootstrap-3.3.0/bootstrap.min.js"></script>--%>
+    <script type="text/javascript" src="${ctx}/js/lib/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="${ctx}/js/lib/bootstrap-3.3.0/bootstrap.min.js"></script>
     <title>home</title>
 </head>
 <body>

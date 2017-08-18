@@ -3,6 +3,7 @@ package com.ycit;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,6 +30,9 @@ public class StrTest {
 
         }
         System.out.println(times);
+
+        Object [] arr = new Object[]{"123","","90d"};
+        Arrays.sort(arr);
     }
 
 }

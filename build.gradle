@@ -35,7 +35,7 @@ subprojects {
                 'org.springframework:spring-webmvc:' + springVersion,
                 'org.springframework:spring-core:' + springVersion,
                 'org.springframework:spring-orm:' + springVersion,
-                'com.fasterxml.jackson.core:jackson-databind:2.4.4',
+                'com.fasterxml.jackson.core:jackson-databind:2.8.2',
                 'joda-time:joda-time:2.6',
                 'com.google.guava:guava:18.0',
                 'org.apache.commons:commons-lang3:3.5',
@@ -46,6 +46,7 @@ subprojects {
 //                'org.apache.logging.log4j:log4j-slf4j-impl:2.7',//slf4j桥接 log4j2
                 'org.apache.logging.log4j:log4j-api:2.7',
                 'org.apache.logging.log4j:log4j-core:2.7',
+                'com.alibaba:druid:1.0.27',
         )
         testCompile (
                 'junit:junit:4.12',

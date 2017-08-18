@@ -10,7 +10,20 @@ require(['../main','module'],function (main,module) {
     require(["../help/util"],function (util) {
         util.quick.click({
             delete:function () {
-                alert("delete");
+                var params = {
+                    name:'xlch',
+                    email:'ycit@163.com'
+                }
+                $.ajax({
+                    url:'/users',
+                    type:'put',
+                    data:JSON.stringify(params),
+                    dataType:'json',
+                    contentType:'application/json',
+                    success:function (data) {
+                        alert('success');
+                    }
+                });
             }
         });
 

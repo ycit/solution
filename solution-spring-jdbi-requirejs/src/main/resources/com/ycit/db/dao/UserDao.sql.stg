@@ -2,6 +2,7 @@ group UserDao;
 
 find() ::= <<
      select * from USER
+     <!this is comment!>
 >>
 
 findById(id) ::= <<
@@ -16,4 +17,11 @@ insertR(user) ::= <<
 insert(user) ::= <<
     insert into USER (name, email)
     values (:user.name, :user.email)
+>>
+
+test(name,age,email) ::= <<
+   <if(name)>name  is not null
+   <else>
+   name is null
+   <endif>
 >>
