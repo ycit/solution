@@ -8,4 +8,5 @@ include 'solution-multi-thread'
 include 'solution-se'
 include 'solution-hibernate'
 include 'solution-mybatis'
+include 'solution-algorithm'
 

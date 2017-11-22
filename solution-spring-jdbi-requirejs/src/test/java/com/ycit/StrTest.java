@@ -33,6 +33,8 @@ public class StrTest {
 
         Object [] arr = new Object[]{"123","","90d"};
         Arrays.sort(arr);
+        StringBuilder stringBuilder = new StringBuilder();
+        System.out.println(Math.abs(-2147483648));
     }
 
 }
