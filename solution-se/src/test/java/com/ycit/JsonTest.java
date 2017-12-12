@@ -5,7 +5,10 @@ import com.ycit.beans.StatBase;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 /**
@@ -41,7 +44,39 @@ public class JsonTest {
         System.out.println(String.valueOf(21312).substring(String.valueOf(21312).length()-1));
 
         Pattern pattern = Pattern.compile("\\d{8}");
-        System.out.println(pattern.matcher("20170a93").find());;
+        System.out.println(pattern.matcher("20170a93").find());
+        System.out.println(Integer.toBinaryString(4));
+        System.out.println(Integer.toBinaryString(-4));
+        System.out.println(Integer.toBinaryString(-5));
+        System.out.println(-4 << 2);
+        System.out.println(-4 >> 2);
+        System.out.println(Integer.toBinaryString(-4 >>> 2));
+        System.out.println(-4 >>> 2);
+        System.out.println(4 >> 2);
+        System.out.println(4 >>> 2);
+        System.out.println((1 >> 4));
+        System.out.println(1 >>> 4);
+        System.out.println(-16 >>> 4);
+        System.out.println(2^3);
+        int[] array = {2,3,4,4,3,5,6,6,5};
+        int v = 0;
+        for (int i = 0;i < array.length;i++) {
+            v ^= array[i];
+        }
+        System.out.println("只出现一次的数是:" + v);
+        Map<String, String> map = new HashMap<>();
+        map.put(null,null);
+        map.put(null,null);
+        map.put(null,null);
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+        for (Map.Entry<String, String> entry:entrySet) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println("key is ===" + key);
+            System.out.println("value is ===" + value);
+        }
+        System.out.println(-140%8); // 取余 -4
+        System.out.println(Math.floorMod(-140, 8)); // 取模 4
     }
 
 }
