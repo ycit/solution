@@ -1,24 +1,29 @@
 package com.ycit.db;
 
 import com.ycit.beans.User;
-import com.ycit.config.AppConfig;
-import com.ycit.config.DataSourceConfig;
 import com.ycit.service.UserService;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.io.*;
-import java.sql.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.Reader;
+import java.io.Writer;
+import java.sql.Clob;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 /**
  * Created by xlch on 2016/12/29.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {AppConfig.class, DataSourceConfig.class})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(classes = {AppConfig.class, DataSourceConfig.class})
 public class ConnectionTest {
 
     @Autowired

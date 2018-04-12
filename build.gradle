@@ -34,6 +34,7 @@ subprojects {
                 fileTree(dir:'lib',include:['*.jar']),// 依赖maven中不存在的jar
                 'org.springframework:spring-webmvc:' + springVersion,
                 'org.springframework:spring-core:' + springVersion,
+                'org.springframework:spring-tx:' + springVersion,
                 'org.springframework:spring-orm:' + springVersion,
                 'com.fasterxml.jackson.core:jackson-databind:2.8.2',
                 'joda-time:joda-time:2.6',

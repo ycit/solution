@@ -1,5 +1,6 @@
 package com.ycit.config;
 
+import com.ycit.security.ApiFilter;
 import com.ycit.security.MyRealm;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -100,6 +101,11 @@ public class AppConfig {
     public Realm myRealm() {
         MyRealm realm = new MyRealm();
         return realm;
+    }
+
+    @Bean
+    public ApiFilter api() {
+        return new ApiFilter();
     }
 
 }

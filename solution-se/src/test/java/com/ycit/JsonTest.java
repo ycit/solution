@@ -79,4 +79,10 @@ public class JsonTest {
         System.out.println(Math.floorMod(-140, 8)); // 取模 4
     }
 
+    @Test
+    public void sTest() {
+        int i = 1;
+        System.out.println(i++);
+    }
+
 }
