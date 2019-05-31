@@ -1,11 +1,5 @@
 package com.ycit.section1;
 
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
-
-import java.util.Arrays;
-
 /**
  * 二分查找
  *
@@ -34,14 +28,14 @@ public class BinarySearch {
 //        int[] whileList = {23,45,86,34,57,29,10,72,93,24,59,74,36,68,16,24};
 //        Arrays.sort(whileList);
 
-        int[] whileList = In.readInts(args[0]);
-        Arrays.sort(whileList);
-        while (!StdIn.isEmpty()) {
-            int key = StdIn.readInt();
-            if (rank(key, whileList) == -1) {
-                StdOut.println(key);
-            }
-        }
+//        int[] whileList = In.readInts(args[0]);
+//        Arrays.sort(whileList);
+//        while (!StdIn.isEmpty()) {
+//            int key = StdIn.readInt();
+//            if (rank(key, whileList) == -1) {
+//                StdOut.println(key);
+//            }
+//        }
     }
 
 }
