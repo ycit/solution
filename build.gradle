@@ -1,3 +1,5 @@
+group 'com.ycit'
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
@@ -58,10 +60,6 @@ subprojects {
                 'javax.servlet:servlet-api:2.5',
                 'javax.servlet:jstl:1.1.2',
                 'taglibs:standard:1.1.2'
-        )
-
-        runtime(
-
         )
 
     }

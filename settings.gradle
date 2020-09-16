@@ -10,4 +10,6 @@ include 'solution-hibernate'
 include 'solution-mybatis'
 include 'solution-algorithm'
 include 'solution-license'
+include 'solution-msg'
+include 'solution-sk'
 

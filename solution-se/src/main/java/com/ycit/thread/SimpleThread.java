@@ -17,6 +17,7 @@ public class SimpleThread extends Thread {
         System.out.println("making " + threadNum);
     }
 
+    @Override
     public void run() {
         while (true) {
             System.out.println("thread " + threadNum + "(count is " + countDown + ")");
